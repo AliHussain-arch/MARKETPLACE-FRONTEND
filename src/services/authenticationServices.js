@@ -1,4 +1,4 @@
-const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
+const BACKEND_URL = 'http://localhost:3000'
 
 const signout = () => {
   window.localStorage.removeItem("token");
@@ -22,6 +22,7 @@ const getUser = () => {
 
 const signup = async (formData) => {
   try {
+    console.log(BACKEND_URL);
     const res = await fetch(`${BACKEND_URL}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -56,9 +57,9 @@ const signin = async (formData) => {
       const user = JSON.parse(jsonPayload);
       return user;
     }
-  } catch (err) {
-    console.log(err);
-    throw err;
+  } catch (error) {
+    console.log(error);
+    throw error;
   }
 };
 
