@@ -7,6 +7,10 @@ import Homepage from './components/Homepage/Homepage.jsx'
 import Navbar from './components/SemanticComponents/Navbar/Navbar.jsx'
 import Footer from './components/SemanticComponents/Footer/Footer.jsx'
 
+// Importing Authentication components
+import SignUp from './components/Authentication/SignUp/SignUp.jsx'
+import SignIn from './components/Authentication/SignIn/SignIn.jsx'
+
 // Importing error components
 import PageNotFound from './components/ErrorComponents/PageNotFound/PageNotFound.jsx'
 
@@ -16,6 +20,8 @@ function App() {
       <Navbar/>
       <h1>App</h1>
       <Homepage/>
+      <SignIn/>
+      <SignUp/>
       <Footer/>
       <PageNotFound/>
     </>
