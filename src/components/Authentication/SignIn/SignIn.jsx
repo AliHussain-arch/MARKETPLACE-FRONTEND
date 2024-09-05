@@ -9,7 +9,7 @@ export default function SignIn() {
             <label htmlFor='username'>username </label>
             <input type="text" name='username' id='password' placeholder='username'/>
           </div>
-          <div className='usernameContainer'>
+          <div className='passwordContainer'>
             <label htmlFor='password'>password </label>
             <input type="password" name='password' id='password' placeholder='password' />
           </div>  
