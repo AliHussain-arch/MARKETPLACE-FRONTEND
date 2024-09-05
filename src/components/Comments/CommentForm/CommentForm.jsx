@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import * as commentService from '../../../services/commentService'
-
-const CommentForm = () => {
+const CommentForm = ({ handleAddComment }) => {
     const [formData, setFormData] = useState({content: ''});
 
     const handleChange = event => {

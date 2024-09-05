@@ -1,5 +1,7 @@
 const BASE_URL = `${import.meta.env.VITE_BACKEND_URL}/user/userId/item/itemId/comments`;
 
+// May need to change token name to accessToken
+
 const create = async (itemId, commentFormData) => {
     try {
         const res = await fetch(`${BASE_URL}`, {
@@ -24,7 +26,7 @@ const update = async (commentId, commentFormData) => {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(hootFormData)
+            body: JSON.stringify(commentFormData)
         });
         return res.json();
     } catch (error) {
