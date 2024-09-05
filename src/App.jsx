@@ -1,4 +1,5 @@
 import './App.css'
+import { Route, Routes } from "react-router-dom";
 
 // Importing Homepage component
 import Homepage from './components/Homepage/Homepage.jsx'
@@ -17,7 +18,13 @@ import PageNotFound from './components/ErrorComponents/PageNotFound/PageNotFound
 function App() {
   return (
     <>
-      <PageNotFound/>
+      <Navbar/>
+      <Routes>
+        <Route path="/homepage" element={<Homepage/>}/>
+        <Route path="/signin" element={<SignIn/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
+        <Route path="*" element={<PageNotFound/>} />
+      </Routes>
     </>
   )
 }
