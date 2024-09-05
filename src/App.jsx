@@ -17,9 +17,7 @@ import PageNotFound from './components/ErrorComponents/PageNotFound/PageNotFound
 function App() {
   return (
     <>
-      <Navbar/>
-      <SignUp/>
-      <Footer/>
+      <PageNotFound/>
     </>
   )
 }
