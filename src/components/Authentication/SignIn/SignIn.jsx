@@ -24,16 +24,16 @@ export default function SignIn({setUser}) {
   
 
     return (
-      <>
+      <body>
       <div className='formContainer'>
         <form onSubmit={handleFormSubmit}>
-          <h1>SignIn</h1>
+          <h1>Sign In</h1>
           <div className='usernameContainer'>
-            <label htmlFor='username'>username </label>
+            <label htmlFor='username'>Username:</label>
             <input type="text" name='username' id='password' placeholder='username' onChange={handleFormData} value={formData.username}/>
           </div>
           <div className='passwordContainer'>
-            <label htmlFor='password'>password </label>
+            <label htmlFor='password'>Password:</label>
             <input type="password" name='password' id='password' placeholder='password' onChange={handleFormData} value={formData.password}/>
           </div>  
           <div className='submitButton'>
@@ -41,6 +41,6 @@ export default function SignIn({setUser}) {
           </div>
         </form>
       </div>
-      </>
+      </body>
     );
   };
