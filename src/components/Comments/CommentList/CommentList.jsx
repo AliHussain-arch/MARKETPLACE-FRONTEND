@@ -14,7 +14,8 @@ const CommentList = () => {
     };
 
     const handleEditComment = async (commentId, commentFormData) => {
-        const editedComment = await commentService.update(commentId, commentFormData)
+        const editedComment = await commentService.update(itemId, commentId, commentFormData);
+        setItem({...item, })
     }
     
     const handleDeleteComment = async (commentId, commentFormData) => {
