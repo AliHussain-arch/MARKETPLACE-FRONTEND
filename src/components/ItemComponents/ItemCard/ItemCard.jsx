@@ -1,6 +1,9 @@
 import './ItemCard.css';
+import { Link } from 'react-router-dom';
+import authenticationServices from '../../../services/authenticationServices';
 
 export default function ItemCard({ item }) {
+    const user = authenticationServices.getUser();
     return (
         <div className="itemCard">
             <div className="itemHeader">
@@ -16,7 +19,7 @@ export default function ItemCard({ item }) {
                 <p className="itemSeller">Seller: {item.seller}</p>
             </div>
             <div className="itemBuyButton">
-                <button>BUY</button>
+                <Link to={`/user/${user.id}/item/${item._id}`}><button>BUY</button></Link>
             </div>
         </div>
     );

@@ -22,6 +22,7 @@ import Contact from './components/FooterComponents/Contact/Contact.jsx';
 
 // Importing Items components
 import ItemsList from './components/ItemComponents/ItemsList/ItemsList.jsx';
+import ItemDetail from './components/ItemComponents/ItemDetail/ItemDetail.jsx';
 
 import authenticationServices from './services/authenticationServices.js';
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/user/:userId/item" element={<ItemsList/>}/>
+          <Route path="/user/:userId/item/:item" element={<ItemDetail/>}/>
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
       <Footer/>
