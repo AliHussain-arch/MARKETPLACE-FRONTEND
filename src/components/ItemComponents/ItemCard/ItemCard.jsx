@@ -17,6 +17,7 @@ export default function ItemCard({ item }) {
                 <p className="itemDescription">{item.description}</p>
                 <p className="itemPrice">${item.price}</p>
                 <p className="itemSeller">Seller: {item.seller}</p>
+                <p className="itemSeller">Buyer: {item.buyer}</p>
             </div>
             <div className="itemBuyButton">
                 <Link to={`/user/${user.id}/item/${item._id}`}><button>BUY</button></Link>
