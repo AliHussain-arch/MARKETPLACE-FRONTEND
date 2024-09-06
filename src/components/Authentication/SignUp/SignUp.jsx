@@ -22,31 +22,31 @@ export default function SignUp() {
   }
 
     return (
-      <>
+      <body>
       <div className='formContainer'>
         <form onSubmit={handleFormSubmit}>
-          <h1>SignUp</h1>
+          <h1>Sign Up</h1>
           <div className='usernameContainer'>
-            <label htmlFor='username'>username </label>
-            <input type="text" name='username' id='username' placeholder='username' onChange={handleFormData} value={formData.username}/>
+            <label htmlFor='username'>Username:</label>
+            <input type="text" name='username' id='username' placeholder='Enter Username' onChange={handleFormData} value={formData.username}/>
           </div>
           <div className='addressContainer'>
-            <label htmlFor='address'>address </label>
-            <textarea type="text" name='address' id='address' placeholder='address' onChange={handleFormData} value={formData.address}/>
+            <label htmlFor='address'>Address:</label>
+            <textarea type="text" name='address' id='address' placeholder='Enter Address' onChange={handleFormData} value={formData.address}/>
           </div>
           <div className='passwordContainer'>
-            <label htmlFor='password'>password </label>
-            <input type="password" name='password' id='password' placeholder='password' onChange={handleFormData} value={formData.password} />
+            <label htmlFor='password'>Password:</label>
+            <input type="password" name='password' id='password' placeholder='Enter Password' onChange={handleFormData} value={formData.password} />
           </div>
           <div className='confirmPasswordContainer'>
-            <label htmlFor='confirmPassword'>confirm password </label>
-            <input type="password" name='confirmPassword' id='confirmPassword' placeholder='confirm password' onChange={handleFormData} value={formData.confirmpassword} />
+            <label htmlFor='confirmPassword'>Confirm Password:</label>
+            <input type="password" name='confirmPassword' id='confirmPassword' placeholder='Enter Confirm Password' onChange={handleFormData} value={formData.confirmpassword} />
           </div>  
           <div className='submitButton'>
             <button type='submit'>Submit</button>
           </div>
         </form>
       </div>
-      </>
+      </body>
     );
   };

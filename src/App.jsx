@@ -25,7 +25,7 @@ import authenticationServices from './services/authenticationServices.js';
 function App() {
   const [user, setUser] = useState(authenticationServices.getUser());
   return (
-    <>
+    <body>
       <Navbar/>
         <Routes>
           <Route path="/" element={<Homepage/>}/>
@@ -36,7 +36,7 @@ function App() {
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
       <Footer/>
-    </>
+    </body>
   )
 }
 
