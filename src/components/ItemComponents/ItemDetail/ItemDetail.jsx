@@ -1,12 +1,27 @@
 import './ItemDetail.css';
 import itemServices from '../../../services/itemServices';
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 export default function ItemDetail() {
+    const navigate = useNavigate();
     const params = useParams();
     const { userId, itemId } = params;
     const [item, setItem] = useState(null);
+
+    const handleBuying = async () => {
+        if (userId === item.seller) {
+            console.log('You cannot buy your own item');
+            return;
+        }
+        try {
+            await itemServices.updateItem(userId, itemId, { buyer: userId });
+            navigate(`/user/${userId}/item`);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
         async function fetchItem() {
@@ -40,7 +55,7 @@ export default function ItemDetail() {
                     <p className="itemSeller">Seller: {item.seller}</p>
                 </div>
                 <div className="itemBuyButton">
-                    <button>BUY</button>
+                    <button onClick={handleBuying}>BUY</button>
                 </div>
             </div>
         </div> 
