@@ -1,8 +1,13 @@
-/* Navbar styling */
 nav {
   overflow: hidden;
   background-color: #b30000;
   display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 nav a {
@@ -10,9 +15,16 @@ nav a {
   text-align: center;
   padding: 1rem 1.5rem;
   text-decoration: none;
+  font-weight: bold;
 }
 
 nav a:hover {
   background-color: #eec0c6;
   color: black;
 }
+
+nav a.active {
+  background-color: #cc0000;
+  color: white;
+}
+

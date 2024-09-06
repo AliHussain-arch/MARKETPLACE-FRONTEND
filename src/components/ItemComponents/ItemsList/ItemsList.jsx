@@ -13,8 +13,6 @@ export default function ItemsList() {
           try {
             const itemsData = await itemServices.listItems(userId);
             setItemList(itemsData.items || []);
-            console.log(itemsData.items);
-            console.log(itemList);
           } catch (error) {
             console.log("Error:", error);
           }

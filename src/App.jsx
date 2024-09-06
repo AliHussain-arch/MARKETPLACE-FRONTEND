@@ -29,7 +29,7 @@ import authenticationServices from './services/authenticationServices.js';
 function App() {
   const [user, setUser] = useState(authenticationServices.getUser());
   return (
-    <body>
+    <>
       <Navbar user={user}/>
         <Routes>
           <Route path="/" element={<Homepage/>}/>
@@ -38,11 +38,11 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/user/:userId/item" element={<ItemsList/>}/>
-          <Route path="/user/:userId/item/:item" element={<ItemDetail/>}/>
+          <Route path="/user/:userId/item/:itemId" element={<ItemDetail/>}/>
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
       <Footer/>
-    </body>
+    </>
   )
 }
 
