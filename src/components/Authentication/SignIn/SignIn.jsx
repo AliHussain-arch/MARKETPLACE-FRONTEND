@@ -30,7 +30,7 @@ export default function SignIn({setUser}) {
           <h1>Sign In</h1>
           <div className='usernameContainer'>
             <label htmlFor='username'>Username:</label>
-            <input type="text" name='username' id='password' placeholder='username' onChange={handleFormData} value={formData.username}/>
+            <input type="text" name='username' id='name' placeholder='username' onChange={handleFormData} value={formData.username}/>
           </div>
           <div className='passwordContainer'>
             <label htmlFor='password'>Password:</label>
