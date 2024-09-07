@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import CommentList from '../../Comments/CommentList/CommentList';
 
-export default function ItemDetail() {
+export default function ItemDetail({user}) {
     const navigate = useNavigate();
     const params = useParams();
     const { userId, itemId } = params;
@@ -59,7 +59,7 @@ export default function ItemDetail() {
                 </div>
             </div>
             <section className="commentSection">
-                <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} />
+                <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} user={user} />
             </section>
         </div> 
     );

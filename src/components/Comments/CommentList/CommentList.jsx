@@ -1,26 +1,30 @@
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import CommentForm from '../CommentForm/CommentForm';
+import ConfirmDelete from '../../Common/ConfirmDelete';
+import * as commentService from '../../../services/commentService';
 
-import CommentForm from '../CommentForm/CommentForm'
-import * as commentService from '../../../services/commentService'
+const CommentList = ({item, setItem, itemId, userId, user}) => {
+    const [showEditForm, setShowEditForm] = useState(null);
+    const [showConfirmDelete, setShowConfirmDelete] = useState(null);
 
-const CommentList = ({item, setItem, itemId, userId}) => {
-    const { commentId } = useParams();
-    
     const handleAddComment = async (commentFormData) => {
-        console.log('adding comment...')
         const newComment = await commentService.create(commentFormData, userId, itemId);
-        console.log('new comment')
         setItem({...item, comments: [...item.comments, newComment]});
     };
 
-    const handleEditComment = async (commentId, commentFormData) => {
-        const editedComment = await commentService.update(itemId, commentId, commentFormData);
-        setItem({...item, })
-    }
+    const handleEditComment = async (commentFormData, originalComment) => {
+        const editedComment = await commentService.update(commentFormData, userId, itemId, originalComment._id);
+        editedComment.poster = originalComment.poster;
+        const updatedComments = item.comments.map((comment) => {
+            comment._id === originalComment._id ? editedComment : comment
+        });
+        setItem({...item, comments: updatedComments});
+        setShowEditForm(null);
+    };
     
     const handleDeleteComment = async (commentId, commentFormData) => {
-
-    }
+        
+    };
 
     return(
         <>
@@ -37,8 +41,10 @@ const CommentList = ({item, setItem, itemId, userId}) => {
                         </p>
                         </header>
                         <p>{comment.content}</p>
-                        {/* {Logic for if the user logged is the poster, then show edit and delete buttons} */}
-                        {/* Edit uses commentform component */}
+                        {comment.poster._id === user.id && (<button onClick={() => {setShowEditForm(comment._id)}}>Edit</button>)}
+                        {comment.poster._id === user.id && (<button onClick={() => {setShowConfirmDelete(comment._id)}}>Delete</button>)}
+                        {showEditForm === comment._id ? <CommentForm handleEditComment={handleEditComment} comment={comment} /> : <></>}
+                        {showConfirmDelete === comment._id ? <ConfirmDelete handleDeleteComment={handleDeleteComment} /> : <></>}
                     </article>
                 ))}
             </section>

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const CommentForm = ({ handleAddComment }) => {
+const CommentForm = ({ handleAddComment, handleEditComment, comment }) => {
     const [formData, setFormData] = useState({content: ''});
 
     const handleChange = event => {
@@ -9,16 +9,24 @@ const CommentForm = ({ handleAddComment }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleAddComment(formData);
+        if (!comment) {
+            handleAddComment(formData);
+        } else {
+            handleEditComment(formData, comment);
+        };
         setFormData({content: ''});
     };
+
+    useEffect(() => {
+        if (comment) setFormData({content: comment.content});
+    }, [comment]);
 
     return(
         <>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="text-input">Your comment:</label>
                 <textarea required type="text" name="content" id="content" value={formData.content} onChange={handleChange} />
-                <button type="submit">Submit Comment</button>
+                <button type="submit">{comment ? 'Edit Comment' : 'Submit Comment'}</button>
             </form>
         </>
     );
