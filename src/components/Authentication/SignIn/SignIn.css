@@ -1,0 +1,53 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 0.1rem solid black;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.8rem;
+}
+
+form {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type="text"],
+select,
+input[type="password"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0;
+  border: 0.1rem solid black;
+  border-radius: 0.25rem;
+}
+
+button {
+  width: 100%;
+  background-color: #b30000;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #eec0c6;
+  color: black;
+}
+
+.usernameContainer, .passwordContainer, .submitButton {
+    margin: 0.25rem;
+}

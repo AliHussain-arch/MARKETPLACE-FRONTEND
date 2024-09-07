@@ -22,7 +22,6 @@ const getUser = () => {
 
 const signup = async (formData) => {
   try {
-    console.log(BACKEND_URL);
     const res = await fetch(`${BACKEND_URL}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

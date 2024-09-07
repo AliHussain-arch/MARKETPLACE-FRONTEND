@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.itemsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 16px;
+    gap: 16px;
+}
+
+.itemsList > div {
+    flex: 1 1 calc(33.333% - 32px);
+    max-width: calc(33.333% - 32px);
+    box-sizing: border-box;
+}
