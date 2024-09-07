@@ -2,13 +2,14 @@ import './ItemDetail.css';
 import itemServices from '../../../services/itemServices';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
+import CommentList from '../../Comments/CommentList/CommentList';
 
-
-export default function ItemDetail() {
+export default function ItemDetail({user}) {
     const navigate = useNavigate();
     const params = useParams();
     const { userId, itemId } = params;
     const [item, setItem] = useState(null);
+    const [trigger, setTrigger] = useState(false);
 
     const handleBuying = async () => {
         if (userId === item.seller) {
@@ -33,7 +34,7 @@ export default function ItemDetail() {
             }
         }
         fetchItem();
-    }, [userId, itemId]);
+    }, [userId, itemId, trigger]);
 
     if (!item) {
         return <h1>Loading...</h1>;
@@ -58,6 +59,9 @@ export default function ItemDetail() {
                     <button onClick={handleBuying}>BUY</button>
                 </div>
             </div>
+            <section className="commentSection">
+                <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} user={user} trigger={trigger} setTrigger={setTrigger} />
+            </section>
         </div> 
     );
 }
