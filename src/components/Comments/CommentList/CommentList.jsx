@@ -1,15 +1,15 @@
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import CommentForm from '../CommentForm/CommentForm'
 import * as commentService from '../../../services/commentService'
 
-const CommentList = () => {
-    const { itemId, commentId } = useParams();
-    const [item, setItem] = useState(null);
+const CommentList = ({item, setItem, itemId, userId}) => {
+    const { commentId } = useParams();
     
     const handleAddComment = async (commentFormData) => {
-        const newComment = await commentService.create(itemId, commentFormData);
+        console.log('adding comment...')
+        const newComment = await commentService.create(commentFormData, userId, itemId);
+        console.log('new comment')
         setItem({...item, comments: [...item.comments, newComment]});
     };
 
@@ -24,14 +24,17 @@ const CommentList = () => {
 
     return(
         <>
-            <section class="comments-container">
+            <section className="comments-container">
                 <h3>Comments</h3>
                 <CommentForm handleAddComment={handleAddComment} />
                 {!item.comments.length && <p>There are no comments.</p>}
                 {item.comments.map((comment) => (
                     <article key={comment._id}>
                         <header>
-                            <PosterDate name={comment.poster.username} date={comment.createdAt} />
+                        <p>
+                            {comment.poster.username} posted on&nbsp;
+                            {new Date(comment.createdAt).toLocaleDateString()}
+                        </p>
                         </header>
                         <p>{comment.content}</p>
                         {/* {Logic for if the user logged is the poster, then show edit and delete buttons} */}

@@ -2,7 +2,7 @@ import './ItemDetail.css';
 import itemServices from '../../../services/itemServices';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
-
+import CommentList from '../../Comments/CommentList/CommentList';
 
 export default function ItemDetail() {
     const navigate = useNavigate();
@@ -58,6 +58,9 @@ export default function ItemDetail() {
                     <button onClick={handleBuying}>BUY</button>
                 </div>
             </div>
+            <section className="commentSection">
+                <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} />
+            </section>
         </div> 
     );
 }

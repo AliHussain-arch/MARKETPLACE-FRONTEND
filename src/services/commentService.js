@@ -1,13 +1,13 @@
-const BASE_URL = `${import.meta.env.VITE_BACKEND_URL}/user/userId/item/itemId/comments`;
+const BASE_URL = `${import.meta.env.VITE_BACKEND_URL}`;
 
 // May need to change token name to accessToken
 
-const create = async (itemId, commentFormData) => {
+const create = async (commentFormData, userId, itemId) => {
     try {
-        const res = await fetch(`${BASE_URL}`, {
+        const res = await fetch(`${BASE_URL}/user/${userId}/item/${itemId}/comments`, {
             method: 'POST',
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`,
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(commentFormData)
@@ -23,7 +23,7 @@ const update = async (commentId, commentFormData) => {
         const res = await fetch(`${BASE_URL}/${commentId}`, {
             method: 'PUT',
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(commentFormData)
@@ -39,7 +39,7 @@ const remove = async (commentId) => {
         const res = await fetch(`${BASE_URL}/${commentId}`, {
             method: 'DELETE',
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`,
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
         });
         return res.json();
