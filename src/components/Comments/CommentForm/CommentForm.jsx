@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const CommentForm = ({ handleAddComment, handleEditComment, comment }) => {
+const CommentForm = ({ handleAddComment, handleEditComment, comment, setShowEditForm }) => {
     const [formData, setFormData] = useState({content: ''});
 
     const handleChange = event => {
@@ -27,6 +27,7 @@ const CommentForm = ({ handleAddComment, handleEditComment, comment }) => {
                 <label htmlFor="text-input">Your comment:</label>
                 <textarea required type="text" name="content" id="content" value={formData.content} onChange={handleChange} />
                 <button type="submit">{comment ? 'Edit Comment' : 'Submit Comment'}</button>
+                {comment ? <button onClick={() => {setShowEditForm(null)}}>Close Edit</button> : <></>}
             </form>
         </>
     );

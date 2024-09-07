@@ -9,6 +9,7 @@ export default function ItemDetail({user}) {
     const params = useParams();
     const { userId, itemId } = params;
     const [item, setItem] = useState(null);
+    const [trigger, setTrigger] = useState(false);
 
     const handleBuying = async () => {
         if (userId === item.seller) {
@@ -33,7 +34,7 @@ export default function ItemDetail({user}) {
             }
         }
         fetchItem();
-    }, [userId, itemId]);
+    }, [userId, itemId, trigger]);
 
     if (!item) {
         return <h1>Loading...</h1>;
@@ -59,7 +60,7 @@ export default function ItemDetail({user}) {
                 </div>
             </div>
             <section className="commentSection">
-                <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} user={user} />
+                <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} user={user} trigger={trigger} setTrigger={setTrigger} />
             </section>
         </div> 
     );
