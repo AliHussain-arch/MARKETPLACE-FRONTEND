@@ -39,7 +39,7 @@ function App() {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/user/:userId/item" element={<ItemsList/>}/>
           <Route path="/user/:userId/item/sell" element={<ItemForm/>}/>
-          <Route path="/user/:userId/item/:itemId" element={<ItemDetail/>}/>
+          <Route path="/user/:userId/item/:itemId" element={<ItemDetail user={user} />}/>
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
       <Footer/>
