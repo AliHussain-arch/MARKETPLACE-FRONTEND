@@ -1,4 +1,3 @@
-import './ItemDetail.css';
 import itemServices from '../../../services/itemServices';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
@@ -41,7 +40,7 @@ export default function ItemDetail({user}) {
     }
 
     return (
-       <div>
+       <section className="itemDetailSection">
             <div className="itemDetail">
                 <div className="itemHeader">
                     <h1 className="itemName">{item.name}</h1>
@@ -62,6 +61,6 @@ export default function ItemDetail({user}) {
             <section className="commentSection">
                 <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} user={user} trigger={trigger} setTrigger={setTrigger} />
             </section>
-        </div> 
+        </section> 
     );
 }

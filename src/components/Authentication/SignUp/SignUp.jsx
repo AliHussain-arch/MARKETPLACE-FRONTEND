@@ -1,4 +1,3 @@
-import './SignUp.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import authenticationServices from '../../../services/authenticationServices';
@@ -21,8 +20,8 @@ export default function SignUp() {
     navigate("/signin");
   }
 
-    return (
-      <body>
+  return (
+    <section className="formSection">
       <div className='formContainer'>
         <form onSubmit={handleFormSubmit}>
           <h1>Sign Up</h1>
@@ -47,6 +46,6 @@ export default function SignUp() {
           </div>
         </form>
       </div>
-      </body>
-    );
-  };
+    </section>
+  );
+};

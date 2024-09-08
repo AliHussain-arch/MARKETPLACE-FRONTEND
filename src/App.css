@@ -1,84 +1,5 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+/* Normalize CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -86,78 +7,274 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
 body {
   line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  background-color: #f2f0ef;
+  font-family: Arial, Helvetica, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  padding: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
 }
 
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, "Gill Sans", "Gill Sans MT", Calibri,
-    "Trebuchet MS", sans-serif;
 }
 
-body {
-  margin: 0 auto;
-  font-family: Arial, Helvetica, "Gill Sans", "Gill Sans MT", Calibri,
-    "Trebuchet MS", sans-serif;
-  background-color: #f2f0ef;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
+/* Navbar & Footer */
 nav {
+  overflow: hidden;
+  background-color: #333;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  margin-bottom: 2rem;
+}
+
+nav a {
+  color: white;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: grey;
+}
+
+nav a.active {
+  background-color: black;
+}
+
+.footContainer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-h1 {
-  font-size: 36px;
+.footContainer a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
 }
 
-h2 {
-  font-size: 30px;
+.footContainer a:hover {
+  background-color: grey;
 }
 
-h3 {
+.footContainer a.active {
+  background-color: black;
+}
+
+/* ItemList */
+.itemListSection {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 1 1 auto;
+}
+
+.itemsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 16px;
+  gap: 16px;
+}
+
+.itemsList > div {
+  flex: 1 1 calc(33.333% - 32px);
+  max-width: calc(33.333% - 32px);
+  box-sizing: border-box;
+}
+
+.itemCard, .itemDetail {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.itemDetail {
+  border: 1px solid #ddd;
+  padding: 2rem;
+  max-width: 80vw;
+  margin: 2rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.itemCard {
+  border: 1px solid #ddd;
+  padding: 16px;
+  max-width: 300px;
+  margin: 16px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.itemHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.itemName {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+.itemCategory {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+.itemImage {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.itemImage img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ItemDetail */
+.itemDetails {
+  margin: 1.5rem 0;
+}
+
+.itemDescription,
+.itemPrice,
+.itemSeller {
+  font-size: 1rem;
+  color: #444;
+  margin: 0.5rem 0;
+}
+
+.itemPrice {
+  font-weight: bold;
+  color: blue;
+}
+
+.itemBuyButton {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.itemBuyButton button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.itemBuyButton button:hover {
+  background-color: #cc0000;
+}
+
+.itemImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+/* Page Not Found */
+.page-not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.sad-face-image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.error-code {
+  font-size: 100px;
+  margin: 0;
+  color: #e74c3c;
+}
+
+.error-message {
   font-size: 24px;
+  margin: 10px 0;
+  color: #333;
 }
 
-h1, h2, h3 {
-  line-height: 40px;
+.error-description {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Comments */
+.comments-container {
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 50vw;
+  margin: 0 25vw;
+}
+
+/* Forms */
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  border: 0.1rem solid black;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.8rem;
+  margin: 1rem;
+  width: 25vw;
+}
+
+.formSection {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
 }
 
 textarea {
@@ -169,4 +286,53 @@ textarea {
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
+}
+
+input[type="text"], select, input[type="password"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0;
+  border: 0.1rem solid black;
+  border-radius: 0.25rem;
+}
+
+button {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: grey;
+  color: black;
+}
+
+/* Homepage */
+.HomepageSection, .ContactSection, .AboutSection {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+}
+
+/* General */
+h1 {
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 40px;
 }

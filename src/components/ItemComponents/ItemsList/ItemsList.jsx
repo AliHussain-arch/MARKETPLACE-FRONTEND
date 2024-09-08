@@ -1,4 +1,3 @@
-import './ItemsList.css';
 import itemServices from '../../../services/itemServices';
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
@@ -28,7 +27,7 @@ export default function ItemsList() {
     );
     }
     return (
-        <>
+        <section className="itemListSection">
             <h1>Items List</h1>
             <div className="itemsList">
                 {itemList.map((item) => (
@@ -37,6 +36,6 @@ export default function ItemsList() {
                     </div>
                 ))}
             </div>
-        </>
+        </section>
     );
   };
