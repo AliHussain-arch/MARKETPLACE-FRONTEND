@@ -26,23 +26,24 @@ export default function ItemForm() {
   }
 
   return (
-    <>
-      <h1>ItemForm</h1>
-      <form onSubmit={handleFormSubmit}>
-        <div className="itemName">
-          <label htmlFor="name">Item name</label>
-          <input
+    <section className="formSection">
+      <div className='formContainer'>
+        <h1>ItemForm</h1>
+        <form onSubmit={handleFormSubmit}>
+          <div className="itemName">
+            <label htmlFor="name">Item name</label>
+            <input
             type="text"
             name="name"
             id="name"
             placeholder="Item Name"
             onChange={handleFormData}
             value={formData.name}
-          />
-        </div>
-        <div className="itemDescription">
-          <label htmlFor="itemDescription">Item Description</label>
-          <input
+            />
+          </div>
+          <div className="itemDescription">
+            <label htmlFor="itemDescription">Item Description</label>
+            <input
             type="text"
             name="description"
             id="description"
@@ -50,28 +51,28 @@ export default function ItemForm() {
             onChange={handleFormData}
             value={formData.description}
             required
-          />
-        </div>
-        <div className="formGroup">
-          <label htmlFor="category">Category:</label>
-          <select
+            />
+          </div>
+          <div className="formGroup">
+            <label htmlFor="category">Category:</label>
+            <select
             id="category"
             name="category"
             value={formData.category}
             onChange={handleFormData}
             required
-          >
-            <option value="">Select a category</option>
-            <option value="Books">Books</option>
-            <option value="Clothes">Clothes</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Art">Art</option>
-            <option value="Miscellaneous">Miscellaneous</option>
-          </select>
-        </div>
-        <div className="itemPrice">
-          <label htmlFor="price">Item price</label>
-          <input
+            >
+              <option value="">Select a category</option>
+              <option value="Books">Books</option>
+              <option value="Clothes">Clothes</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Art">Art</option>
+              <option value="Miscellaneous">Miscellaneous</option>
+            </select>
+          </div>
+          <div className="itemPrice">
+            <label htmlFor="price">Item price</label>
+            <input
             type="number"
             name="price"
             id="price"
@@ -79,12 +80,13 @@ export default function ItemForm() {
             onChange={handleFormData}
             value={formData.price}
             required
-          />
-        </div>
-        <div className="submitButton">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </>
+            />
+          </div>
+          <div className="submitButton">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }
