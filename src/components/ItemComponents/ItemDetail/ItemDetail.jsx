@@ -1,4 +1,3 @@
-import './ItemDetail.css';
 import itemServices from '../../../services/itemServices';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";

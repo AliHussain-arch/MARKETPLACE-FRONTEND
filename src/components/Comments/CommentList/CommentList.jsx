@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import CommentForm from '../CommentForm/CommentForm';
 import ConfirmDelete from '../../Common/ConfirmDelete';
 import * as commentService from '../../../services/commentService';
-import './CommentList.css';
 
 const CommentList = ({item, setItem, itemId, userId, user, trigger, setTrigger}) => {
     const [showEditForm, setShowEditForm] = useState(null);

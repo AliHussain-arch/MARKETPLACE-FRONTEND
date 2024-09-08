@@ -1,4 +1,3 @@
-import './SignIn.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import authenticationServices from '../../../services/authenticationServices';
@@ -23,8 +22,8 @@ export default function SignIn({setUser}) {
   }
   
 
-    return (
-      <body>
+  return (
+    <>
       <div className='formContainer'>
         <form onSubmit={handleFormSubmit}>
           <h1>Sign In</h1>
@@ -41,6 +40,6 @@ export default function SignIn({setUser}) {
           </div>
         </form>
       </div>
-      </body>
-    );
-  };
+    </>
+  );
+};
