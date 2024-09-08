@@ -1,7 +1,9 @@
 export default function Homepage() {
     return (
-      <>
-        <h1>Homepage</h1>
-      </>
+      <section className="HomepageSection">
+        <div className="Homepage">
+          <h1>Homepage</h1>
+        </div>
+      </section>
     );
   };

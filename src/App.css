@@ -313,6 +313,13 @@ button:hover {
   color: black;
 }
 
+/* Homepage */
+.HomepageSection, .ContactSection, .AboutSection {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+}
+
 /* General */
 h1 {
   font-size: 36px;
