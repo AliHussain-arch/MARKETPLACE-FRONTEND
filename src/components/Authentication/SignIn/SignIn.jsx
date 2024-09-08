@@ -23,7 +23,7 @@ export default function SignIn({setUser}) {
   
 
   return (
-    <>
+    <section className="formSection">
       <div className='formContainer'>
         <form onSubmit={handleFormSubmit}>
           <h1>Sign In</h1>
@@ -40,6 +40,6 @@ export default function SignIn({setUser}) {
           </div>
         </form>
       </div>
-    </>
+    </section>
   );
 };

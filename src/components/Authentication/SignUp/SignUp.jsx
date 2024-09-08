@@ -20,8 +20,8 @@ export default function SignUp() {
     navigate("/signin");
   }
 
-    return (
-      <body>
+  return (
+    <section className="formSection">
       <div className='formContainer'>
         <form onSubmit={handleFormSubmit}>
           <h1>Sign Up</h1>
@@ -46,6 +46,6 @@ export default function SignUp() {
           </div>
         </form>
       </div>
-      </body>
-    );
-  };
+    </section>
+  );
+};
