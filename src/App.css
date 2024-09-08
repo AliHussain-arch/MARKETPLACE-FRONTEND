@@ -136,7 +136,7 @@ body {
   background-color: #f2f0ef;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 
 nav {
