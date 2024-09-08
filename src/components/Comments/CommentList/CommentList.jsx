@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CommentForm from '../CommentForm/CommentForm';
 import ConfirmDelete from '../../Common/ConfirmDelete';
 import * as commentService from '../../../services/commentService';
+import './CommentList.css';
 
 const CommentList = ({item, setItem, itemId, userId, user, trigger, setTrigger}) => {
     const [showEditForm, setShowEditForm] = useState(null);
@@ -22,7 +23,7 @@ const CommentList = ({item, setItem, itemId, userId, user, trigger, setTrigger})
             const editedComment = await commentService.update(commentFormData, userId, itemId, originalComment._id);
             editedComment.poster = originalComment.poster;
             const updatedComments = item.comments.map((comment) => {
-                comment._id === originalComment._id ? editedComment : comment
+               return comment._id === originalComment._id ? editedComment : comment
             });
             setItem({...item, comments: updatedComments});
             setShowEditForm(null);
