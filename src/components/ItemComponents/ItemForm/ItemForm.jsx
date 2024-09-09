@@ -21,7 +21,9 @@ export default function ItemForm() {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
+    
     await itemServices.createItem(userId,formData);
+
     navigate(`/user/${userId}/item`);
   }
 
@@ -79,6 +81,17 @@ export default function ItemForm() {
             placeholder="Item price"
             onChange={handleFormData}
             value={formData.price}
+            required
+            />
+          </div>
+          <div className="itemImage">
+            <label htmlFor="image">Item Image</label>
+            <input
+            type="file"
+            name="image"
+            id="image"
+            onChange={handleFormData}
+            value={formData.image}
             required
             />
           </div>

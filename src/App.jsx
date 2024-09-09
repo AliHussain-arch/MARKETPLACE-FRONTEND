@@ -29,7 +29,7 @@ import authenticationServices from './services/authenticationServices.js';
 function App() {
   const [user, setUser] = useState(authenticationServices.getUser());
   return (
-    <body>
+    <main>
       <Navbar user={user} setUser={setUser}/>
         <Routes>
           <Route path="/" element={<Homepage/>}/>
@@ -43,7 +43,7 @@ function App() {
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
       <Footer/>
-    </body>
+    </main>
   )
 }
 
