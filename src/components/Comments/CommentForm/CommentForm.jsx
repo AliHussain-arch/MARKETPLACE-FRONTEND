@@ -22,14 +22,14 @@ const CommentForm = ({ handleAddComment, handleEditComment, comment, setShowEdit
     }, [comment]);
 
     return(
-        <>
+        <div className="commentForm">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="text-input">Your comment:</label>
                 <textarea required type="text" name="content" id="content" value={formData.content} onChange={handleChange} />
                 <button type="submit">{comment ? 'Edit Comment' : 'Submit Comment'}</button>
                 {comment ? <button onClick={() => {setShowEditForm(null)}}>Close Edit</button> : <></>}
             </form>
-        </>
+        </div>
     );
 };
 

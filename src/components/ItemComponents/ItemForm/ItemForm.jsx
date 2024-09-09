@@ -26,6 +26,7 @@ export default function ItemForm() {
   }
 
   return (
+    <div className="content">
     <section className="formSection">
       <div className='formContainer'>
         <h1>ItemForm</h1>
@@ -88,5 +89,6 @@ export default function ItemForm() {
         </form>
       </div>
     </section>
+    </div>
   );
 }
