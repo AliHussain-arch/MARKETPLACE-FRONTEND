@@ -28,11 +28,11 @@ export default function ItemForm() {
   }
 
   return (
+    <div className="content">
     <section className="formSection">
       <div className='formContainer'>
         <h1>ItemForm</h1>
         <form onSubmit={handleFormSubmit}>
-          <div className="itemName">
             <label htmlFor="name">Item name</label>
             <input
             type="text"
@@ -42,8 +42,6 @@ export default function ItemForm() {
             onChange={handleFormData}
             value={formData.name}
             />
-          </div>
-          <div className="itemDescription">
             <label htmlFor="itemDescription">Item Description</label>
             <input
             type="text"
@@ -54,8 +52,6 @@ export default function ItemForm() {
             value={formData.description}
             required
             />
-          </div>
-          <div className="formGroup">
             <label htmlFor="category">Category:</label>
             <select
             id="category"
@@ -71,8 +67,6 @@ export default function ItemForm() {
               <option value="Art">Art</option>
               <option value="Miscellaneous">Miscellaneous</option>
             </select>
-          </div>
-          <div className="itemPrice">
             <label htmlFor="price">Item price</label>
             <input
             type="number"
@@ -101,5 +95,6 @@ export default function ItemForm() {
         </form>
       </div>
     </section>
+    </div>
   );
 }

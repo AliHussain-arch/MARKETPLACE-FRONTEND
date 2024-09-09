@@ -21,6 +21,7 @@ export default function SignUp() {
   }
 
   return (
+    <div className="content">
     <section className="formSection">
       <div className='formContainer'>
         <form onSubmit={handleFormSubmit}>
@@ -47,5 +48,6 @@ export default function SignUp() {
         </form>
       </div>
     </section>
+    </div>
   );
 };
