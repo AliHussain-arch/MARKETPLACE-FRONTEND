@@ -21,44 +21,42 @@ export default function ItemForm() {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    
-    await itemServices.createItem(userId,formData);
-
+    await itemServices.createItem(userId, formData);
     navigate(`/user/${userId}/item`);
   }
 
   return (
     <div className="content">
-    <section className="formSection">
-      <div className='formContainer'>
-        <h1>ItemForm</h1>
-        <form onSubmit={handleFormSubmit}>
+      <section className="formSection">
+        <div className="formContainer">
+          <h1>ItemForm</h1>
+          <form onSubmit={handleFormSubmit}>
             <label htmlFor="name">Item name</label>
             <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Item Name"
-            onChange={handleFormData}
-            value={formData.name}
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Item Name"
+              onChange={handleFormData}
+              value={formData.name}
             />
             <label htmlFor="itemDescription">Item Description</label>
             <input
-            type="text"
-            name="description"
-            id="description"
-            placeholder="Item Description"
-            onChange={handleFormData}
-            value={formData.description}
-            required
+              type="text"
+              name="description"
+              id="description"
+              placeholder="Item Description"
+              onChange={handleFormData}
+              value={formData.description}
+              required
             />
             <label htmlFor="category">Category:</label>
             <select
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={handleFormData}
-            required
+              id="category"
+              name="category"
+              value={formData.category}
+              onChange={handleFormData}
+              required
             >
               <option value="">Select a category</option>
               <option value="Books">Books</option>
@@ -69,32 +67,29 @@ export default function ItemForm() {
             </select>
             <label htmlFor="price">Item price</label>
             <input
-            type="number"
-            name="price"
-            id="price"
-            placeholder="Item price"
-            onChange={handleFormData}
-            value={formData.price}
-            required
+              type="number"
+              name="price"
+              id="price"
+              placeholder="Item price"
+              onChange={handleFormData}
+              value={formData.price}
+              required
             />
-          </div>
-          <div className="itemImage">
             <label htmlFor="image">Item Image</label>
             <input
-            type="file"
-            name="image"
-            id="image"
-            onChange={handleFormData}
-            value={formData.image}
-            required
+              type="file"
+              name="image"
+              id="image"
+              onChange={handleFormData}
+              value={formData.image}
+              required
             />
-          </div>
-          <div className="submitButton">
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
-    </section>
+            <div className="submitButton">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
     </div>
   );
 }
