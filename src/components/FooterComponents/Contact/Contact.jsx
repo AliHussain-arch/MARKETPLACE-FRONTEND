@@ -38,7 +38,7 @@ export default function Contact() {
         <section className="formSection">
           <div className="formContainer">
             <form onSubmit={handleFormSubmit}>
-              <h2>Contact</h2>
+              <h2>Contact Us</h2>
               <div className="input-box">
                 <label htmlFor="name">Name:</label>
                 <input

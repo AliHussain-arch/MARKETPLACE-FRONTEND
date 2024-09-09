@@ -82,7 +82,6 @@ export default function ItemForm() {
               id="image"
               onChange={handleFormData}
               value={formData.image}
-              required
             />
             <div className="submitButton">
               <button type="submit">Submit</button>
