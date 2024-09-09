@@ -27,6 +27,7 @@ export default function ItemsList() {
     );
     }
     return (
+      <div className="content">
         <section className="itemListSection">
             <h1>Items List</h1>
             <div className="itemsList">
@@ -37,5 +38,6 @@ export default function ItemsList() {
                 ))}
             </div>
         </section>
+      </div>
     );
   };
