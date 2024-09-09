@@ -15,13 +15,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 .content {
   line-height: 1;
-  background-color: #f2f0ef;
-  margin: 0;
-  padding: 3rem auto;
+  background-color: #F0EADE;
+  padding: 1rem auto;
   display: flex;
   flex-direction: column;
-  min-height: 84vh;
+  min-height: 78vh;
   justify-content: center;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+main {
+  background-color: #F0EADE;
 }
 
 * {
@@ -32,7 +37,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* Navbar & Footer */
 nav {
   overflow: hidden;
-  background-color: #333;
+  background-color:#4F1025;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,15 +58,15 @@ nav a {
 }
 
 nav a:hover {
-  background-color: grey;
+  background-color: #6e1c37;
 }
 
 nav a.active {
-  background-color: black;
+  background-color: #923152;
 }
 
 .footContainer {
-  background-color: #333;
+  background-color: #4F1025;
   color: white;
   text-align: center;
   padding: 0 1rem;
@@ -84,11 +89,11 @@ nav a.active {
 }
 
 .footContainer a:hover {
-  background-color: grey;
+  background-color: #6e1c37;
 }
 
 .footContainer a.active {
-  background-color: black;
+  background-color:#923152;
 }
 
 /* ItemList */
@@ -96,7 +101,6 @@ nav a.active {
   display: flex;
   flex-flow: column wrap;
   flex: 1 1 auto;
-  margin-top: 1rem;
 }
 
 .itemsList {
@@ -178,7 +182,7 @@ nav a.active {
 
 .itemPrice {
   font-weight: bold;
-  color: blue;
+  color: #56887F;
 }
 
 .itemBuyButton {
@@ -187,7 +191,7 @@ nav a.active {
 }
 
 .itemBuyButton button {
-  background-color: blue;
+  background-color: #56887F;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -199,7 +203,7 @@ nav a.active {
 }
 
 .itemBuyButton button:hover {
-  background-color: #cc0000;
+  background-color: #76bcaf;
 }
 
 .itemImage img {
@@ -268,7 +272,26 @@ nav a.active {
 }
 
 article {
-  
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+}
+
+article p {
+  margin: 0.2rem;
+}
+
+.comment-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.comment-buttons button {
+  width: 25%;
 }
 
 /* Forms */
@@ -283,6 +306,7 @@ article {
   padding: 0.5rem 0.8rem;
   margin: 1rem;
   width: 25vw;
+  background-color: white;
 }
 
 .formSection {
@@ -291,12 +315,16 @@ article {
   align-items: center;
   justify-content: center;
   flex: 1 1 auto;
+  min-height: 0;
 }
 
 form {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-between;
+  /* display: flex; */
+  flex-flow: column nowrap;
+  /* align-items: space-between; */
+  /* gap: 0.5rem; */  
+  min-width: 0;
+  min-height: 0;
 }
 
 textarea {
@@ -320,18 +348,28 @@ input[type="text"], select, input[type="password"] {
 
 button {
   width: 100%;
-  background-color: black;
-  color: white;
+  background-color:#E1DA55;
+  color: black;
+  font-weight: bold;
   padding: 0.5rem 0.75rem;
   margin: 0.25rem 0;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+}
+
+.delete-button {
+  background-color: #960E1A;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #bf3440;
+  color: white;
 }
 
 button:hover {
-  background-color: grey;
+  background-color: #e5e080;
   color: black;
 }
 
@@ -358,4 +396,8 @@ h3 {
   font-size: 24px;
   line-height: 40px;
   text-align: center;
+}
+
+strong {
+  font-weight: bold;
 }

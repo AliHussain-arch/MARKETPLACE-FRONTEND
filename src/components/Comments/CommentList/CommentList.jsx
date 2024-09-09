@@ -54,13 +54,17 @@ const CommentList = ({item, setItem, itemId, userId, user, trigger, setTrigger})
                     <article key={comment._id}>
                         <header>
                         <p>
-                            {comment.poster.username} posted on&nbsp;
-                            {new Date(comment.createdAt).toLocaleDateString()}
+                            <strong>{comment.poster.username}</strong> posted on&nbsp;
+                            <strong>{new Date(comment.createdAt).toLocaleDateString()}</strong>
                         </p>
                         </header>
                         <p>{comment.content}</p>
-                        {comment.poster._id === user.id && (<button onClick={() => {setShowEditForm(comment._id)}}>Edit</button>)}
-                        {comment.poster._id === user.id && (<button onClick={() => {setShowConfirmDelete(comment._id)}}>Delete</button>)}
+                        {comment.poster._id === user.id && (
+                            <div className="comment-buttons">
+                                <button onClick={() => {setShowEditForm(comment._id)}}>Edit</button>
+                                <button className="delete-button" onClick={() => {setShowConfirmDelete(comment._id)}}>Delete</button>
+                            </div>
+                        )}
                         {showEditForm === comment._id ? <CommentForm handleEditComment={handleEditComment} comment={comment} setShowEditForm={setShowEditForm} /> : <></>}
                         {showConfirmDelete === comment._id ? <ConfirmDelete handleDeleteComment={handleDeleteComment} commentId={comment._id} setShowConfirmDelete={setShowConfirmDelete}/> : <></>}
                     </article>
