@@ -401,3 +401,26 @@ h3 {
 strong {
   font-weight: bold;
 }
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+video {
+  height: 100%;
+  width: 100%
+}
+
+/* Homepage */
+
+.home-vid-container {
+  max-width: 80vw;
+}
+
+.Homepage {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+}
