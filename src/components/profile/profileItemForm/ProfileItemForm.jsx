@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import itemServices from '../../../services/itemServices'; 
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import itemServices from "../../../services/itemServices";
 
-const  ProfileItemForm = () => {
+const ProfileItemForm = () => {
   const { userId, itemId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -62,7 +62,7 @@ const  ProfileItemForm = () => {
 
   return (
     <section className="formSection">
-      <div className='formContainer'>
+      <div className="formContainer">
         <h1>Edit Item</h1>
         <form onSubmit={handleFormSubmit}>
           <div className="itemName">
@@ -119,12 +119,12 @@ const  ProfileItemForm = () => {
             />
           </div>
           <label htmlFor="image">Item Image</label>
-            <input
-              type="file"
-              name="image"
-              id="image"
-              onChange={handleFormData}
-            />
+          <input
+            type="file"
+            name="image"
+            id="image"
+            onChange={handleFormData}
+          />
 
           <div className="submitButton">
             <button type="submit">Update Item</button>
@@ -133,6 +133,6 @@ const  ProfileItemForm = () => {
       </div>
     </section>
   );
-}
+};
 
 export default ProfileItemForm;
