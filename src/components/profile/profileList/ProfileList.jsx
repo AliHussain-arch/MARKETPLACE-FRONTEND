@@ -7,6 +7,7 @@ const ProfileList = () => {
   const [profiles, setProfiles] = useState([]);
   const { userId } = useParams();
   const [showUpdateForm, setShowUpdateForm] = useState(null);
+  const [trigger, setTrigger] = useState(false);
 
   const handleUpdateProfile = async (formData) => {
     try {
@@ -19,6 +20,7 @@ const ProfileList = () => {
       );
       setProfiles(updatedProfiles);
       setShowUpdateForm(null);
+      setTrigger(!trigger);
     } catch (error) {
       console.error(error);
     }
@@ -43,7 +45,7 @@ const ProfileList = () => {
       }
     }
     fetchProfile();
-  }, [userId]);
+  }, [userId, trigger]);
 
   if (profiles.length === 0) {
     return (

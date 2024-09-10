@@ -20,7 +20,7 @@ const ProfileForm = ({ handleUpdateProfile, profile, setShowUpdateForm }) => {
   }, [profile]);
 
   return (
-    <>
+    <div className="profileForm">
       <form onSubmit={handleSubmit}>
         <label htmlFor="address">Address:</label>
         <input
@@ -30,12 +30,12 @@ const ProfileForm = ({ handleUpdateProfile, profile, setShowUpdateForm }) => {
           value={formData.address}
           onChange={handleChange}
         />
-        <button type="submit">Update Address</button>
-        <button type="button" onClick={() => setShowUpdateForm(null)}>
+        <button id="addressButton" type="submit">Update Address</button>
+        <button id="addressButton" type="button" onClick={() => setShowUpdateForm(null)}>
           Close
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

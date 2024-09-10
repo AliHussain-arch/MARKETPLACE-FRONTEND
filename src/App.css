@@ -272,7 +272,7 @@ nav a.active {
   border-radius: 1rem;
 }
 
-.commentForm {
+.commentForm, .profileForm {
   margin: 0.5rem 0;
 }
 
@@ -532,4 +532,16 @@ a {
 .itemCard {
   color: black;
   text-decoration: none;
+}
+
+.profileForm form {
+  display: flex;
+  flex: column nowrap;
+  gap: 0.3rem;
+  width: 20vw;
+  align-items: center;
+}
+
+#addressButton {
+  min-width: 100%;
 }
