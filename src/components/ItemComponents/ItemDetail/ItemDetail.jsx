@@ -68,6 +68,7 @@ export default function ItemDetail({user}) {
     }
 
     return (
+       <div className="content">
        <section className="itemDetailSection">
             <div className="itemDetail">
                 <div className="itemHeader">
@@ -92,5 +93,6 @@ export default function ItemDetail({user}) {
                 <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} user={user} trigger={trigger} setTrigger={setTrigger} />
             </section>
         </section> 
+        </div>
     );
 }
