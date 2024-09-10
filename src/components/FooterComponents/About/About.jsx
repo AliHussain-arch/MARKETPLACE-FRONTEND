@@ -1,5 +1,5 @@
-import github_icon from '../../../../public/github_icon.svg';
-import linkedin_icon from '../../../../public/linkedin_icon.svg';
+import github_icon from '/github_icon.svg';
+import linkedin_icon from '/linkedin_icon.svg';
 
 export default function About() {
   return (
