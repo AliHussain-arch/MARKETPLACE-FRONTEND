@@ -44,44 +44,54 @@ const HistoryList = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <div className="content">
+      <section className="historySection">
+      <div className="history">
       <h1>History</h1>
-      <section>
+      <section className="boughtItems">
         <h2>Bought Items</h2>
         {history.boughtItems.length > 0 ? (
-          <ul>
+          <div>
             {history.boughtItems.map((item) => (
-              <li key={item._id}>
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
+              <div className="itemCard" key={item._id}>
+                <div className="itemHeader">
+                  <h3>{item.name}</h3>
+                </div>
                 <p>Price: ${item.price}</p>
                 <p>Bought On: {formatDate(item.createdAt)}</p>
-                <img src={item.image} alt={item.name} width="100" />
-              </li>
+                <div className="itemImage">
+                  <img src={item.image} alt={item.name} />
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>No bought items found.</p>
         )}
       </section>
-      <section>
+      <section className="soldItems">
         <h2>Sold Items</h2>
         {history.soldItems.length > 0 ? (
-          <ul>
+          <div>
             {history.soldItems.map((item) => (
-              <li key={item._id}>
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
+              <div className="itemCard" key={item._id}>
+                <div className="itemHeader">
+                  <h3>{item.name}</h3>
+                </div>
                 <p>Price: ${item.price}</p>
                 <p>Sold On: {formatDate(item.createdAt)}</p>
                 <p>Buyer: {item.buyer.username}</p>
-                <img src={item.image} alt={item.name} width="100" />
-              </li>
+                <div className="itemImage">
+                  <img src={item.image} alt={item.name} />
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>No sold items found.</p>
         )}
+      </section>
+      </div>
       </section>
     </div>
   );

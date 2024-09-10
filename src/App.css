@@ -131,6 +131,9 @@ nav a.active {
   max-width: 80vw;
   margin: 2rem auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
 }
 
 .itemCard {
@@ -143,7 +146,6 @@ nav a.active {
 
 .itemHeader {
   text-align: center;
-  margin-bottom: 1.5rem;
 }
 
 .itemName {
@@ -160,12 +162,11 @@ nav a.active {
 
 .itemImage {
   text-align: center;
-  margin: 1.5rem 0;
 }
 
 .itemImage img {
-  max-width: 100%;
-  height: auto;
+  min-width: 100%;
+  max-height: 60vh;
   border-radius: 8px;
 }
 
@@ -174,16 +175,12 @@ nav a.active {
 }
 
 /* ItemDetail */
-.itemDetails {
-  margin: 1.5rem 0;
-}
-
 .itemDescription,
 .itemPrice,
 .itemSeller {
   font-size: 1rem;
+  line-height: 1.5rem;
   color: #444;
-  margin: 0.5rem 0;
 }
 
 .itemPrice {
@@ -193,7 +190,6 @@ nav a.active {
 
 .itemBuyButton {
   text-align: center;
-  margin-top: 1.5rem;
 }
 
 .itemBuyButton button {
@@ -213,10 +209,7 @@ nav a.active {
 }
 
 .itemImage img {
-  width: 100%;
-  height: auto;
   border-radius: 4px;
-  max-height: 200px;
   object-fit: cover;
 }
 
@@ -272,7 +265,7 @@ nav a.active {
   border-radius: 1rem;
 }
 
-.commentForm {
+.commentForm, .profileForm {
   margin: 0.5rem 0;
 }
 
@@ -386,7 +379,7 @@ button:hover {
 }
 
 /* Stretch Page */
-.HomepageSection, .ContactSection, .AboutSection {
+.HomepageSection, .ContactSection, .AboutSection, .profileListSection, .historySection, .itemDetailSection {
   display: flex;
   flex-flow: column nowrap;
   flex: 1 1 auto;
@@ -483,4 +476,79 @@ a {
   border-radius: 2rem;
   margin-right: 0.25rem;
   margin-bottom: 0.25rem;
+}
+
+/* Profile */
+
+.profileList, .history {
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 50vw;
+  margin: 0 25vw;
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.profileButtons {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 1rem; 
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  gap: 2rem;
+}
+
+.profileButtons button a {
+  color: black;
+}
+
+.profileAddress {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem; 
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.profileAddress button {
+  max-width: 50%;
+}
+
+.itemCard {
+  color: black;
+  text-decoration: none;
+}
+
+.profileForm form {
+  display: flex;
+  flex: column nowrap;
+  gap: 0.3rem;
+  width: 20vw;
+  align-items: center;
+}
+
+#addressButton {
+  min-width: 100%;
+}
+
+/* History */
+
+.boughtItems, .soldItems {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem; 
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  align-items: center;
 }

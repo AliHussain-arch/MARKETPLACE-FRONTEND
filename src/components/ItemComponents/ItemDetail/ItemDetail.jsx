@@ -79,8 +79,8 @@ export default function ItemDetail({user}) {
                     <img src={item.image} alt={`${item.name} image`} />
                 </div>
                 <div className="itemDetails">
-                    <p className="itemDescription">{item.description}</p>
-                    <p className="itemPrice">${item.price}</p>
+                    <p className="itemDescription">Description: {item.description}</p>
+                    <p className="itemPrice">Price: ${item.price}</p>
                     <p className="itemSeller">Seller: {item.seller}</p>
                 </div>
                 <div className="itemBuyButton">
