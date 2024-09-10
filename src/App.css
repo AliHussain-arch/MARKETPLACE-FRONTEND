@@ -27,6 +27,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 main {
   background-color: #F0EADE;
+  min-height: 100vh;
 }
 
 * {
