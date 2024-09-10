@@ -1,14 +1,13 @@
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = "http://localhost:3000";
 
 const createItem = async (userId, formData) => {
   try {
     const res = await fetch(`${BACKEND_URL}/user/${userId}/item`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      body: JSON.stringify(formData),
+      body: formData,
     });
     const json = await res.json();
     if (!res.ok) {
@@ -41,25 +40,25 @@ const listItems = async (userId) => {
   }
 };
 
-const getItem = async (userId,itemId) => {
-    try {
-      const res = await fetch(`${BACKEND_URL}/user/${userId}/item/${itemId}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      const json = await res.json();
-      if (!res.ok) {
-        throw new Error(json.message || "Something went wrong");
-      }
-      return json;
-    } catch (error) {
-      console.log("Error:", error);
-      throw error;
+const getItem = async (userId, itemId) => {
+  try {
+    const res = await fetch(`${BACKEND_URL}/user/${userId}/item/${itemId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    const json = await res.json();
+    if (!res.ok) {
+      throw new Error(json.message || "Something went wrong");
     }
-  };
+    return json;
+  } catch (error) {
+    console.log("Error:", error);
+    throw error;
+  }
+};
 
 const updateItem = async (userId, itemId, formData) => {
   try {

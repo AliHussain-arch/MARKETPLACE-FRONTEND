@@ -6,22 +6,38 @@ export default function ItemForm() {
   const params = useParams();
   const navigate = useNavigate();
   const { userId } = params;
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     category: "",
     price: null,
+    image: null,
     seller: userId,
   });
 
   function handleFormData(event) {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+
+    if (name === "image") {
+      setFormData({ ...formData, [name]: event.target.files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   }
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    await itemServices.createItem(userId, formData);
+
+    let data = new FormData();
+    data.append("name", formData.name);
+    data.append("description", formData.description);
+    data.append("category", formData.category);
+    data.append("price", formData.price);
+    data.append("seller", formData.seller);
+    data.append("image", formData.image);
+
+    await itemServices.createItem(userId, data);
     navigate(`/user/${userId}/item`);
   }
 
@@ -81,7 +97,6 @@ export default function ItemForm() {
               name="image"
               id="image"
               onChange={handleFormData}
-              value={formData.image}
             />
             <div className="submitButton">
               <button type="submit">Submit</button>
