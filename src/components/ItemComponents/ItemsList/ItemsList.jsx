@@ -14,7 +14,8 @@ export default function ItemsList() {
         async function fetchItemsList() {
           try {
             const itemsData = await itemServices.listItems(userId);
-            setItemList(itemsData.items || []);
+            const itemsArray = itemsData.items.filter((item) => !item.buyer);
+            setItemList(itemsArray || []);
           } catch (error) {
             console.log("Error:", error);
           }
