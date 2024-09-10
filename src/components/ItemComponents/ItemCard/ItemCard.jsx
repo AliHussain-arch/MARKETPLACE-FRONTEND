@@ -15,8 +15,8 @@ export default function ItemCard({ item }) {
             <div className="itemDetails">
                 <p className="itemDescription">{item.description}</p>
                 <p className="itemPrice">${item.price}</p>
-                <p className="itemSeller">Seller: {item.seller}</p>
-                <p className="itemSeller">Buyer: {item.buyer}</p>
+                <p className="itemSeller">Seller: {item.seller.username}</p>
+                {item.buyer ? <p className="itemSeller">Buyer: {item.buyer.username}</p> : <></>}
             </div>
             <div className="itemBuyButton">
                 <button>BUY</button>
