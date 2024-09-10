@@ -57,7 +57,7 @@ export default function ItemForm() {
               value={formData.name}
             />
             <label htmlFor="itemDescription">Item Description</label>
-            <input
+            <textarea
               type="text"
               name="description"
               id="description"

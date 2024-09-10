@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import itemServices from '../../../services/itemServices'; 
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import itemServices from "../../../services/itemServices";
 
-const  ProfileItemForm = () => {
+const ProfileItemForm = () => {
   const { userId, itemId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -34,13 +34,26 @@ const  ProfileItemForm = () => {
 
   function handleFormData(event) {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+
+    if (name === "image") {
+      setFormData({ ...formData, [name]: event.target.files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   }
 
   async function handleFormSubmit(event) {
     event.preventDefault();
     try {
-      await itemServices.updateItem(userId, itemId, formData);
+      let data = new FormData();
+      data.append("name", formData.name);
+      data.append("description", formData.description);
+      data.append("category", formData.category);
+      data.append("price", formData.price);
+      data.append("image", formData.image);
+
+      await itemServices.updateItem(userId, itemId, data);
+
       navigate(`/user/${userId}/profile`);
     } catch (error) {
       console.log("Error updating item:", error);
@@ -49,7 +62,7 @@ const  ProfileItemForm = () => {
 
   return (
     <section className="formSection">
-      <div className='formContainer'>
+      <div className="formContainer">
         <h1>Edit Item</h1>
         <form onSubmit={handleFormSubmit}>
           <div className="itemName">
@@ -58,18 +71,19 @@ const  ProfileItemForm = () => {
               type="text"
               name="name"
               id="name"
-              placeholder="Item Name"
+              placeholder="Enter item name"
               onChange={handleFormData}
               value={formData.name}
               required
             />
           </div>
           <div className="itemDescription">
-            <label htmlFor="description">Item Description</label>
+            <label htmlFor="description">Description</label>
             <textarea
+              type="text"
               name="description"
               id="description"
-              placeholder="Item Description"
+              placeholder="Enter Item Description"
               onChange={handleFormData}
               value={formData.description}
               required
@@ -93,17 +107,25 @@ const  ProfileItemForm = () => {
             </select>
           </div>
           <div className="itemPrice">
-            <label htmlFor="price">Item Price</label>
+            <label htmlFor="price">Price</label>
             <input
               type="number"
               name="price"
               id="price"
-              placeholder="Item Price"
+              placeholder="Item's Price"
               onChange={handleFormData}
               value={formData.price}
               required
             />
           </div>
+          <label htmlFor="image">Item Image</label>
+          <input
+            type="file"
+            name="image"
+            id="image"
+            onChange={handleFormData}
+          />
+
           <div className="submitButton">
             <button type="submit">Update Item</button>
           </div>
@@ -111,6 +133,6 @@ const  ProfileItemForm = () => {
       </div>
     </section>
   );
-}
+};
 
 export default ProfileItemForm;

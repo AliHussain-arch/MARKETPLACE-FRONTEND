@@ -65,10 +65,9 @@ const updateItem = async (userId, itemId, formData) => {
     const res = await fetch(`${BACKEND_URL}/user/${userId}/item/${itemId}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      body: JSON.stringify(formData),
+      body: formData,
     });
     const json = await res.json();
     if (!res.ok) {
