@@ -19,7 +19,7 @@ export default function ItemCard({ item }) {
                 <p className="itemSeller">Buyer: {item.buyer}</p>
             </div>
             <div className="itemBuyButton">
-                <Link to={`/user/${user.id}/item/${item._id}`}><button>BUY</button></Link>
+                <button>BUY</button>
             </div>
         </div>
     );

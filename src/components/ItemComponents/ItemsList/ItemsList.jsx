@@ -1,8 +1,9 @@
 import Select from 'react-select';
 import itemServices from '../../../services/itemServices';
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ItemCard from '../ItemCard/ItemCard';
+import authenticationServices from '../../../services/authenticationServices';
 
 export default function ItemsList() {
     const params = useParams();
@@ -40,6 +41,8 @@ export default function ItemsList() {
 
     const filteredItem = selectedCategory ? itemList.filter((item) => item.category === selectedCategory.value) : itemList;
 
+    const user = authenticationServices.getUser();
+
     return (
       <div className="content">
         <section className="itemListSection">
@@ -50,7 +53,7 @@ export default function ItemsList() {
             <div className="itemsList">
                 {filteredItem.map((item) => (
                     <div key={item._id}>
-                        <ItemCard item={item} />
+                        <Link to={`/user/${user.id}/item/${item._id}`} className="itemLink"><ItemCard item={item} /></Link>
                     </div>
                 ))}
             </div>
