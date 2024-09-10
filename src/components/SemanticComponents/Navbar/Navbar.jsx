@@ -18,8 +18,6 @@ export default function Navbar({ user, setUser }) {
               <Link to={`/user/${user.id}/item`}>Explore</Link>
               <Link to={`/user/${user.id}/profile`}>Profile</Link>
               <Link to={`/user/${user.id}/item/sell`} >Sell</Link>
-              <Link to={`/fill-it-with-path`}>History</Link>
-              <Link to={`/fill-it-with-path`}>Wishlist</Link>
               <Link to="/" onClick={handleSignOut}>Sign out</Link>
             </>
           ) : (

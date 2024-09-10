@@ -2,6 +2,8 @@ import itemServices from '../../../services/itemServices';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import CommentList from '../../Comments/CommentList/CommentList';
+import wishlistServices from '../../../services/wishlistServices';
+import profileServices from '../../../services/profileServices';
 
 export default function ItemDetail({user}) {
     const navigate = useNavigate();
@@ -9,6 +11,8 @@ export default function ItemDetail({user}) {
     const { userId, itemId } = params;
     const [item, setItem] = useState(null);
     const [trigger, setTrigger] = useState(false);
+    const [profileId, setProfileId] = useState(null); 
+    const [wishMessage, setwishMessage] = useState("");
 
     const handleBuying = async () => {
         if (userId === item.seller) {
@@ -23,6 +27,20 @@ export default function ItemDetail({user}) {
         }
     };
 
+    const handleAddToWishlist = async () => {
+        if (!profileId) {
+            console.log('Profile ID is not available');
+            return;
+        }
+        try {
+            await wishlistServices.addToWishlist(profileId, itemId); 
+            setwishMessage('Item added to wishlist!');
+        } catch (error) {
+            setwishMessage('Item could not be added to wishlist');
+        }
+    };
+    
+
     useEffect(() => {
         async function fetchItem() {
             try {
@@ -32,7 +50,17 @@ export default function ItemDetail({user}) {
                 console.log("Error:", error);
             }
         }
+        async function fetchProfile() {
+            try {
+                const profileData = await profileServices.getProfile(userId);
+                setProfileId(profileData.profile._id); 
+            } catch (error) {
+                console.log("Error fetching profile:", error);
+            }
+        }
+    
         fetchItem();
+        fetchProfile();
     }, [userId, itemId, trigger]);
 
     if (!item) {
@@ -56,7 +84,9 @@ export default function ItemDetail({user}) {
                 </div>
                 <div className="itemBuyButton">
                     <button onClick={handleBuying}>BUY</button>
+                    <button onClick={handleAddToWishlist}>Add to Wishlist</button>
                 </div>
+                {wishMessage && <p>{wishMessage}</p>}
             </div>
             <section className="commentSection">
                 <CommentList item={item} setItem={setItem} itemId={itemId} userId={userId} user={user} trigger={trigger} setTrigger={setTrigger} />
