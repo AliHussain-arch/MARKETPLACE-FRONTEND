@@ -112,6 +112,8 @@ const ProfileItemForm = () => {
               type="number"
               name="price"
               id="price"
+              step="0.01"
+              min="0"
               placeholder="Item's Price"
               onChange={handleFormData}
               value={formData.price}

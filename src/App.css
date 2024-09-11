@@ -507,6 +507,7 @@ a {
   padding: 1.5rem;
   border-radius: 1rem;
   gap: 2rem;
+  justify-content: center;
 }
 
 .profileButtons button a {
