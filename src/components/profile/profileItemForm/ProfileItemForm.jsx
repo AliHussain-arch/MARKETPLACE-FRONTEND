@@ -9,7 +9,7 @@ const ProfileItemForm = () => {
     name: "",
     description: "",
     category: "",
-    price: null,
+    price: "",
     image: "",
   });
 

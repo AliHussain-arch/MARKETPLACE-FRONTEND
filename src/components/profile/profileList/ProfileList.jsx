@@ -59,68 +59,67 @@ const ProfileList = () => {
     <div className="content">
       <section className="profileListSection">
         <div className="profileList">
-        <h1>My Profile</h1>
-        <div>
-          {profiles.map((profile) => (
-            <div key={profile._id}>
-              <div className="profileButtons">
-              <button>
-                <Link to={`/user/${userId}/profile/${profile._id}/history`}>
-                  View History
-                </Link>
-              </button>
-              <button>
-                <Link to={`/profile/${profile._id}/wishlist`}>
-                  My Wishlists
-                </Link>
-              </button>
+          <h1>My Profile</h1>
+          <div>
+            {profiles.map((profile) => (
+              <div key={profile._id}>
+                <div className="profileButtons">
+                  <Link to={`/user/${userId}/profile/${profile._id}/history`}>
+                    <button>View History</button>
+                  </Link>
+                  <Link to={`/profile/${profile._id}/wishlist`}>
+                    <button> My Wishlists</button>
+                  </Link>
+                </div>
+                <div className="profileAddress">
+                  <p>
+                    <strong>Username: </strong>
+                    {profile.owner.username}
+                  </p>
+                  <p>
+                    <strong>Address: </strong>
+                    {profile.address}
+                  </p>
+                  {showUpdateForm === profile._id ? (
+                    <ProfileForm
+                      handleUpdateProfile={handleUpdateProfile}
+                      profile={profile}
+                      setShowUpdateForm={setShowUpdateForm}
+                    />
+                  ) : (
+                    <button onClick={() => setShowUpdateForm(profile._id)}>
+                      Update Address
+                    </button>
+                  )}
+                </div>
+                <div>
+                  <h1>My Items on Sale</h1>
+                  <h3>Click to Edit!</h3>
+                  <div>
+                    {profile.myItems && Array.isArray(profile.myItems) ? (
+                      profile.myItems.map((item) => (
+                        <Link
+                          to={`/user/${userId}/profile/${profile._id}/items/${item._id}`}
+                          key={item._id}
+                        >
+                          <div className="itemCard">
+                            <div className="itemHeader">
+                              <h1 className="itemName">{item.name}</h1>
+                            </div>
+                            <div className="itemImage">
+                              <img src={item.image} alt={item.name} />
+                            </div>
+                          </div>
+                        </Link>
+                      ))
+                    ) : (
+                      <p>No Lists Available</p>
+                    )}
+                  </div>
+                </div>
               </div>
-              <div className="profileAddress">
-              <p>
-                <strong>Username: </strong>
-                {profile.owner.username}
-              </p>
-              <p>
-                <strong>Address: </strong>
-                {profile.address}
-              </p>
-              {showUpdateForm === profile._id ? (
-                <ProfileForm
-                  handleUpdateProfile={handleUpdateProfile}
-                  profile={profile}
-                  setShowUpdateForm={setShowUpdateForm}
-                />
-              ) : (
-                <button onClick={() => setShowUpdateForm(profile._id)}>
-                  Update Address
-                </button>
-              )}
-              </div>
-              <div>
-              <h1>My Items on Sale</h1>
-              <h3>Click to Edit!</h3>
-              <div>
-                {profile.myItems && Array.isArray(profile.myItems) ? (
-                  profile.myItems.map((item) => (
-                    <Link to={`/user/${userId}/profile/${profile._id}/items/${item._id}`} key={item._id}>
-                    <div className="itemCard">
-                      <div className="itemHeader">
-                        <h1 className="itemName">{item.name}</h1>
-                      </div>
-                      <div className="itemImage">
-                        <img src={item.image} alt={item.name} />
-                      </div>
-                    </div>
-                    </Link>
-                  ))
-                ) : (
-                  <p>No Lists Available</p>
-                )}
-              </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

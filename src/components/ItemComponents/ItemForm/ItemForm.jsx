@@ -11,7 +11,7 @@ export default function ItemForm() {
     name: "",
     description: "",
     category: "",
-    price: null,
+    price: "",
     image: null,
     seller: userId,
   });
