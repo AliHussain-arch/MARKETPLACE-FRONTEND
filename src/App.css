@@ -250,16 +250,21 @@ nav a.active {
   color: #333;
 }
 
+
 .error-description {
   font-size: 16px;
   color: #666;
 }
 
+.commentSection {
+  display: flex;
+  justify-content: center;
+}
 /* Comments */
 .comments-container {
   display: flex;
   flex-flow: column wrap;
-  max-width: 50vw;
+  min-width: 50vw;
   margin: 0 25vw;
   border: 1px solid #ddd;
   background-color: white;
@@ -381,7 +386,7 @@ button:hover {
 }
 
 /* Stretch Page */
-.HomepageSection, .ContactSection, .AboutSection, .profileListSection, .historySection, .itemDetailSection {
+.HomepageSection, .ContactSection, .AboutSection, .profileListSection, .historySection, .itemDetailSection, .wishlistSection {
   display: flex;
   flex-flow: column nowrap;
   flex: 1 1 auto;
@@ -541,6 +546,23 @@ a {
   min-width: 100%;
 }
 
+.item-detail-container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem; 
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  align-items: center;
+  max-width: 80vw;
+}
+
+.itemDetailSection {
+  align-items: center;
+}
+
 /* History */
 
 .boughtItems, .soldItems {
@@ -552,5 +574,24 @@ a {
   padding: 1.5rem;
   border-radius: 1rem;
   gap: 1rem;
+  align-items: center;
+}
+
+/* Wishlist */
+
+.wishlist {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem; 
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  align-items: center;
+  width: 50vw;
+}
+
+.wishlistSection {
   align-items: center;
 }
