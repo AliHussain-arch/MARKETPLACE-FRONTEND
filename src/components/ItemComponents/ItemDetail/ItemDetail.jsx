@@ -81,7 +81,7 @@ export default function ItemDetail({user}) {
                 <div className="itemDetails">
                     <p className="itemDescription">Description: {item.description}</p>
                     <p className="itemPrice">Price: ${item.price}</p>
-                    <p className="itemSeller">Seller: {item.seller}</p>
+                    <p className="itemSeller">Seller: {item.seller.username}</p>
                 </div>
                 <div className="itemBuyButton">
                     <button onClick={handleBuying}>BUY</button>
