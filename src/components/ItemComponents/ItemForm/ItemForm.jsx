@@ -86,6 +86,7 @@ export default function ItemForm() {
               type="number"
               name="price"
               id="price"
+              min="0"
               placeholder="Item price"
               onChange={handleFormData}
               value={formData.price}
