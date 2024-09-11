@@ -257,7 +257,6 @@ nav a.active {
 }
 
 .commentSection {
-  /* background-color: aqua; */
   display: flex;
   justify-content: center;
 }
@@ -265,7 +264,7 @@ nav a.active {
 .comments-container {
   display: flex;
   flex-flow: column wrap;
-  min-width: 90%;
+  min-width: 50vw;
   margin: 0 25vw;
   border: 1px solid #ddd;
   background-color: white;
@@ -387,7 +386,7 @@ button:hover {
 }
 
 /* Stretch Page */
-.HomepageSection, .ContactSection, .AboutSection, .profileListSection, .historySection, .itemDetailSection {
+.HomepageSection, .ContactSection, .AboutSection, .profileListSection, .historySection, .itemDetailSection, .wishlistSection {
   display: flex;
   flex-flow: column nowrap;
   flex: 1 1 auto;
@@ -575,5 +574,24 @@ a {
   padding: 1.5rem;
   border-radius: 1rem;
   gap: 1rem;
+  align-items: center;
+}
+
+/* Wishlist */
+
+.wishlist {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem; 
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  align-items: center;
+  width: 50vw;
+}
+
+.wishlistSection {
   align-items: center;
 }

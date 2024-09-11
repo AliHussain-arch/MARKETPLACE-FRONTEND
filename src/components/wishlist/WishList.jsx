@@ -36,11 +36,11 @@ const WishList = () => {
             <p>No items in your wishlist</p>
           ) : (
             wishlist.map((item) => (
-              <article key={item._id}>
-                <h3>{item.item.name}</h3>
-                <p>{item.item.description}</p>
+              <article className="itemCard" key={item._id}>
+                <h3 className="itemHeader">{item.item.name}</h3>
+                <p>Description: {item.item.description}</p>
                 <p>Price: ${item.item.price}</p>
-                <img src={item.item?.image} alt={item.item?.name} width="100" />
+                <img src={item.item?.image} alt={item.item?.name} />
                 <p>Added on: {new Date(item.createdAt).toLocaleDateString()}</p>
                 <button onClick={() => handleRemoveFromWishlist(item._id)}>
                   Remove
