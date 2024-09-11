@@ -102,6 +102,7 @@ nav a.active {
   display: flex;
   flex-flow: column wrap;
   flex: 1 1 auto;
+  margin-bottom: 2rem;
 }
 
 .itemsList {
@@ -129,6 +130,7 @@ nav a.active {
   border: 1px solid #ddd;
   padding: 2rem;
   max-width: 80vw;
+  min-width: 60vw;
   margin: 2rem auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -248,16 +250,22 @@ nav a.active {
   color: #333;
 }
 
+
 .error-description {
   font-size: 16px;
   color: #666;
 }
 
+.commentSection {
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+}
 /* Comments */
 .comments-container {
   display: flex;
   flex-flow: column wrap;
-  max-width: 50vw;
+  min-width: 90%;
   margin: 0 25vw;
   border: 1px solid #ddd;
   background-color: white;
@@ -537,6 +545,23 @@ a {
 
 #addressButton {
   min-width: 100%;
+}
+
+.item-detail-container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem; 
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  align-items: center;
+  max-width: 80vw;
+}
+
+.itemDetailSection {
+  align-items: center;
 }
 
 /* History */

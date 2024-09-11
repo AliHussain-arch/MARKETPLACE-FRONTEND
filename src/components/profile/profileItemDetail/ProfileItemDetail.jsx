@@ -41,14 +41,18 @@ const ProfileItemDetail = () => {
     }
 
     return (
+        <div className="content">
+        <section className="itemDetailSection">
         <div className="item-detail-container">
             <h1>{itemDetail.name}</h1>
-            <img src={itemDetail.image} alt={itemDetail.name} width="200" />
+            <img src={itemDetail.image} alt={itemDetail.name} />
             <p><strong>Price: </strong>{itemDetail.price}</p>
             <p><strong>Description: </strong>{itemDetail.description}</p>
             <p><strong>Category: </strong>{itemDetail.category}</p>
             <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button className="delete-button" onClick={handleDelete}>Delete</button>
+        </div>
+        </section>
         </div>
     );
 };
