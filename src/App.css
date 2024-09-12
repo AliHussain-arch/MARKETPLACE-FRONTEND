@@ -584,11 +584,31 @@ a {
 }
 
 
+.historySection .historySectionSides {
+  display: flex;
+  justify-content: space-between;
+}
+
+.historySection .itemHeader h3 {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.historySection .itemCard {
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  background-color: #f9f9f9;
+}
+
+
 .historySection .boughtItems, .soldItems {
   display: flex;
   flex-flow: column nowrap;
   margin: 1rem; 
   border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 2rem;
   background-color: #fff;
   padding: 2rem;
   border-radius: 1rem;
@@ -619,6 +639,18 @@ a {
   flex-direction: column;
   align-items: center;
 }
+
+.historySection .itemImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.historySection .itemCard:hover {
+  transform: scale(1.05);
+}
+
 
 .historySection .itemCard p {
   font-size: 1rem;
