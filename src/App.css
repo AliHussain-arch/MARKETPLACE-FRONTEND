@@ -595,3 +595,9 @@ a {
 .wishlistSection {
   align-items: center;
 }
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
