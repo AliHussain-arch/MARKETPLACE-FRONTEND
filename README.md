@@ -3,8 +3,6 @@
 
 # Antique Marketplace
 
-![Antique Marketplace]()
-
 **Deployed Website:** [Click here!]()
 
 The Antique Marketplace is an e-commerce platform where you can sell and buy unique items. 
@@ -47,6 +45,8 @@ Built in MERN stack, it serves as a proof of concept for an online marketplace o
 
 - Pagination for Explore page and comments.
 - Form to apply for creation of new item categories and sub-categories.
+- Search functionality.
+- Shopping Cart.
 
 ---
 
