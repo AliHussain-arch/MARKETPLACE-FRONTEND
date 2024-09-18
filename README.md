@@ -3,7 +3,7 @@
 
 # Antique Marketplace
 
-**Deployed Website:** [Click here!](https://marketplace-frontend-ecru-seven.vercel.app/)
+**Deployed Website:** [Click here!](https://marketplace-frontend-self.vercel.app/)
 
 The Antique Marketplace is an e-commerce platform where you can sell and buy unique items. 
 
@@ -11,6 +11,12 @@ Built in MERN stack, it serves as a proof of concept for an online marketplace o
 
 ## Screenshots
 
+![Explore Page](public/Explore.png)
+![Item Page](public/ItemDetail.png)
+![Sell Form](public/SellItem.png)
+![Profile](public/Profile.png)
+![History](public/History.png)
+![Wishlist](public/Wishlist.png)
 
 
 ## Project Links
@@ -34,12 +40,16 @@ Built in MERN stack, it serves as a proof of concept for an online marketplace o
 ## Technologies Used
 
 - React.js
+- JavaScript
 - HTML
 - CSS
 - Express
+- Node.js
 - MongoDB
 - npm
+- Amazon Web Services
 - Prettier (code formatter)
+- React Select
 
 ## Planned Future Enhancements
 
